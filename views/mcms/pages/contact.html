@@ -1,0 +1,50 @@
+{% extends themeRootFile %}
+
+{% block title %}
+  {{ config.title|raw }} - contact
+{% endblock %}
+
+
+{% block content %}
+  <header>Contact:</header>
+  {% if mailSent %}
+    
+      <div class="message win">thanks for your message, {{name}}, that email should be on it's way to us now.</div>
+    
+  {% else %}
+  
+    {% for err in errs %}
+    
+      <div class="message fail">{{ err }}</div>
+      
+    {% endfor %}
+    
+    <form action="" method="post">
+      <fieldset>
+        <legend>you can use this form to send us an email:
+        </legend>
+        <ul>
+          <li>
+            <label for="name">your name:</label><input type="text" name="name" value="" id="name" />
+          </li>
+          <li>
+            <label for="email">your email:</label><input type="text" name="email" value="" id="email" />
+          </li>
+          <li>
+            <label for="subject">subject:</label><input type="text" name="subject" value="" id="subject" />
+          </li>
+          <li>
+            <label for="text">text:</label><textarea rows="10" cols="30" name="text" id="text"></textarea>
+          </li>
+          
+          <li>
+            <input type="submit" value="send mail" />
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+    
+  {% endif %}
+  
+{% endblock %}
+

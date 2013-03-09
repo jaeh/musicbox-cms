@@ -1,0 +1,18 @@
+{% extends themeRootFile %}
+
+{% block title %}
+  {{ config.title|raw }} - impressum
+{% endblock %}
+
+{% block content %}
+  <header>impressum content:</header>
+  
+  <p>responsible for the content on this page: {{config.author}}</p>
+  <p>author email: {{config.email}}</p>
+
+  <p>
+    This page may include links to pages that get provided by third parties.
+    We hereby distance ourselves from any material on those third party pages that may harm any laws in any jurisdiction.
+  </p>
+{% endblock %}
+

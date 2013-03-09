@@ -1,0 +1,35 @@
+*{font-family:Helvetica,Arial,sans-serif}
+label{display:block}
+a{color:#22babd;cursor:pointer}
+.hidden{display:none}
+#result{white-space:pre;font-family:Consolas,monospace}
+#sheetContainer{background:#fff;border:3px solid;width:100%;height:120px;position:relative;padding:20px 0}
+#lineContainer{position:absolute;margin:4px 20px;width:93%}
+.line{border-top:1px solid;border-left:3px solid #808080;height:15px}
+.line.last{border-left:0 none;padding:0 0 0 3px}
+.dotted{border:0 none;border-top:1px dotted #ccc;padding:0 0 0 3px}
+.mainTone{font-size:10px;line-height:10px;position:absolute;margin:-9px 0 0 -32px;color:#999}
+#keyContainer{height:100%;width:60px;margin:2px 0 0 23px;float:left;}
+#keyContainer #violin{margin:7px 0 0 10px}
+#keyContainer #bass{margin:13px 0 0 10px}
+#inputContainer{margin:20px 0 0;float:left;width:310px;}
+#inputContainer .tickHeader,#inputContainer .inputHeader{float:left}
+#inputContainer li{display:block;text-align:right;}
+#inputContainer li label,#inputContainer li input{display:inline;vertical-align:middle}
+#inputContainer li input{width:150px}
+#inputContainer li result{width:150px}
+#controlContainer{display:block;clear:both;width:100%;position:relative;margin:20px 0 30px}
+#input-ui a{margin:0 10px 0 0}
+#columnContainer{float:left}
+#inputListContainer{width:500px}
+.column{float:left;margin:0 17px 0 0;width:15px}
+.droptarget{width:10px;height:8px;border-radius:80% 90%;z-index:2;position:relative;background-color:#ddd}
+#toneIndicatorContainer{float:left;font-size:8px;line-height:8px;color:#999;margin:0 20px 0 0}
+#noteContainer{position:absolute;top:23px;left:105px;}
+#noteContainer .column{float:left;margin:0 17px 0 0;width:15px}
+#noteContainer .note{width:25px;height:15px;border-radius:80% 90%;position:relative;float:left;display:block;margin:-7px 0 0;z-index:5}
+#noteContainer .visible{position:relative;background-color:#666}
+#jsonObject{font-family:pre}
+.narrow{width:50px}
+#scriptMonkeys{color:#a00;margin:15px;}
+#scriptMonkeys span{color:#500}

@@ -1,0 +1,72 @@
+{% extends themeRootFile %}
+
+{% block js %}
+    <!--
+        MIDI.js from https://github.com/mudcube/MIDI.js/
+
+        License: MIT: https://github.com/mudcube/MIDI.js/blob/master/LICENSE-MIT.txt
+    -->
+    <script src="/js/libs/midijs/MIDI/AudioDetect.js" type="text/javascript"></script>
+    <script src="/js/libs/midijs/MIDI/LoadPlugin.js" type="text/javascript"></script>
+    <script src="/js/libs/midijs/MIDI/Plugin.js" type="text/javascript"></script>
+    <script src="/js/libs/midijs/MIDI/Player.js" type="text/javascript"></script>
+    <script src="/js/libs/midijs/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
+    <script src="/js/libs/midijs/Window/DOMLoader.script.js" type="text/javascript"></script>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/musicbox.js"></script>
+    <script src="/js/sheetofmusic.js"></script>    
+{% endblock %}
+
+{% block css %}
+    <link href="/css/musicbox/customizer.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block opengraphdata %}
+  <meta property="og:title" content="{{config.name}} - customizer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="create your own melodies for the musicbox here and listen to them while editing a notesheet or an textarea." />
+  <meta property="og:url" content="{{config.protocol}}{{config.url}}/about" />
+  <meta property="og:image" content="{{config.protocol}}{{config.url}}/img/logo.png" />
+{% endblock %}
+
+{% block content %}
+    <h1>Music box generator</h1>
+    
+    <div id="headermenu">
+        <div id="octave">
+            <header>ovtave:</header>
+            <button id="up" type="button">up</button>
+            <button id="down" type="button">down</button>
+        </div>
+    </div>
+    <div id="sheet">
+        <div id="keyContainer">
+            <div class="violinkey"></div>
+            <div class="basskey"></div>
+        </div>
+        <div id="lineContainer">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line last"></div>
+            <div class="line dotted"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line last"></div>
+        </div>
+        <div id="columnContainer"></div>
+    </div>
+    <div class="inputContainer">
+        <label for="melody">you can also change your melody here</label>
+        <textarea name="melody" rows="23" cols="20" id="melody"></textarea>
+    </div>
+    <div class="player">
+        <button id="play">Play!</button>
+        <div id="playbackStatus">Playback stopped</div>
+        <h2>Copy these to your SCAD file</h2>
+        <textarea id="result" rows="50" cols="80"></textarea>
+{% endblock %}

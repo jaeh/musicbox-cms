@@ -1,0 +1,104 @@
+{% extends themeRootFile %}
+
+{% block js %}
+    <script src="/js/jquery.js"></script>
+    <script src="/js/libs/soundmanager2-nodebug-jsmin.js"></script>
+    
+     <script src="/js/libs/midijs/MIDI/AudioDetect.js" type="text/javascript"></script>
+     <script src="/js/libs/midijs/MIDI/LoadPlugin.js" type="text/javascript"></script>
+     <script src="/js/libs/midijs/MIDI/Plugin.js" type="text/javascript"></script>
+     <script src="/js/libs/midijs/MIDI/Player.js" type="text/javascript"></script>
+     <script src="/js/libs/midijs/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
+     <script src="/js/libs/midijs/Window/DOMLoader.script.js" type="text/javascript"></script>
+     <script src="/js/libs/Base64.js"></script>
+     <script src="/js/libs/base64binary.js"></script>
+
+    <script src="/js/customizer.js"></script>
+    
+    <script src="/js/musicbox.js"></script>
+{% endblock %}
+
+{% block css %}
+    <link href="/css/musicbox/customizer.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block opengraphdata %}
+  <meta property="og:title" content="{{config.name}} - customizer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="create your own melodies for the musicbox here and listen to them while editing a notesheet or an textarea." />
+  <meta property="og:url" content="{{config.protocol}}{{config.url}}/about" />
+  <meta property="og:image" content="{{config.protocol}}{{config.url}}/img/logo.png" />
+{% endblock %}
+
+{% block content %}
+    <h1>Music box generator</h1>
+    <div id="scriptMonkeys">
+        ScriptMonkeys are currently working on:<br/>
+        loading and reading midi files from the client and on the client - <span>almost done</span><br/>
+        make ui customizable (number of ticks, lines, notes, pins) - <span>in progress</span><br/>
+        maybe create a stylesheet with some actuall style? - <span>delayed</span><br/>
+        load single octaves of oggs instead of all of them at once - <span>delayed</span><br/>
+        create postrequests to thingiverse to autoupdate the fields there <span>delayed</span><br/>
+    </div>
+    <div id="infoContainer">
+        <ul class="ui-controls">
+            <li>
+                <!-- 9999 ticks "should" be enough. -->
+                <label for="tickDisplay">Ticks:</label>
+                <input type="number" max="9999" min="0" name="tickDisplay" value="" id="tickDisplay" class="narrow" />
+            </li>
+            <li>
+                <label for="notesInOctave">notesInOctave:</label>
+                <input type="text" name="notesInOctave" value="" id="notesInOctave" /> 
+            </li>
+            <li>
+                <label for="availableNotes">availableNotes:</label>
+                <input type="text" name="availableNotes" value="" id="availableNotes" /> 
+            </li>
+        </ul>
+    </div>
+    <div id="sheetContainer">
+        <div id="lineContainer"></div>
+        <div id="sheetContent">
+            <div id="columnContainer"></div>
+        </div>
+    </div>
+    
+    <div id="controlContainer">
+        <button id="play">Play!</button>
+        <div id="playbackStatus">Playback stopped</div>
+    </div>
+    <div id="input-ui">
+        <a id="showResultContainer" data-show="resultContainer" class="showHideUI">show openscad data</a>
+        <a id="showTextinput" data-show="inputContainer" class="showHideUI">show textinput</a>
+        <a id="showJsonObject" data-show="jsonObjectContainer" class="showHideUI">show jsonObject</a>
+        <a id="showMelodyInputContainer" data-show="melodyInputContainer" class="showHideUI">show melody input</a>
+        
+    </div>
+    <div id="melodyInputContainer" class="hidden hideable">
+        <textarea  cols="10" rows="20" id="melody" ></textarea>
+    </div>
+    
+    <div id="inputContainer" class="hidden hideable">
+        <header>you can (soon) also change your melody here</header>
+        <legend>
+            <span class="tickHeader">tick:</span>
+            <span class="inputHeader">direct input:</span>
+            <span class="resultPins">resulting pins:</span>
+        </legend>
+        
+        <div id="inputListContainer"></div>
+    </div>
+    <div id="jsonObjectContainer" class="hidden hideable">
+        <header>this is a jsonString of your melody and ui settings:</header>
+        <textarea id="jsonObject" cols="100" rows="20">{{ returnObject }}</textarea>
+        <button type="button" id="saveJson">saveJ(a)son</button>
+    </div>
+    
+    <div id="resultContainer" class="hideable">
+        <h2>Copy these to your SCAD file</h2>
+    
+        <div id="resultDiv"></div>
+    </div>
+    
+{% endblock %}

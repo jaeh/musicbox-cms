@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <title>{% block title %}{{ config.title|raw }}{% endblock %}</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    
+    <link rel="stylesheet" type="text/css" href="css/{{theme}}/main.css" />
+    
+    {% block css %}{% endblock %}
+    
+    {% block opengraphdata %}
+      <meta property="og:title" content="{{config.name}} - 'yet another micro cms" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="{{config.protocol}}{{config.url}}" />
+      <meta property="og:image" content="{{config.protocol}}{{config.url}}/img/logo.png" />
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    {% block before_header %}{% endblock %}
+    <header>
+      
+      {% block before_logo %}{% endblock %}
+      <div id="logo">
+        <a href="/">
+          {% if config.logo %}
+            <img src="{{config.protocol}}{{config.url}}{{config.logo}}" height="60" width="60" alt="{{config.title}}" title="{{config.title}}" />
+          {% else %}
+            {{ config.title|raw }}
+          {% endif %}
+        </a>
+      </div>
+      {% block after_logo %}{% endblock %}
+      
+      
+      {% block before_header_nav %}{% endblock %}
+      <nav>
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul>
+      </nav>      
+      {% block after_header_nav %}{% endblock %}
+  
+    </header>
+    {% block after_header %}{% endblock %}
+  
+      
+    {% block before_content %}{% endblock %}
+    <article class="main">
+      {% block content %}{% endblock %}
+    </article>
+    {% block after_content %}{% endblock %}
+  
+    
+    {% block before_aside %}{% endblock %}
+    {% block aside %}{% endblock %}
+    {% block after_aside %}{% endblock %}
+  
+  
+    {% block before_footer %}{% endblock %}
+    {% block footer %}
+      <footer>
+        
+        {% block before_footer_content %}{% endblock %}
+        {% block footer_content %}
+          <span>page default footer</span>
+        {% endblock %}
+        {% block after_footer_content %}{% endblock %}
+  
+        {% block before_footer_nav %}{% endblock %}
+        <nav>
+          <ul>
+            <li><a href="/impressum">impressum</a></li>
+          </ul>
+        </nav>
+        {% block after_footer_nav %}{% endblock %}
+      
+      </footer>
+    {% endblock %}
+    {% block after_footer %}{% endblock %}
+  
+    {% block js %}{% endblock %}
+{% endblock %}

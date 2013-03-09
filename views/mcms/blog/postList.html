@@ -1,0 +1,46 @@
+{% extends themeRootFile %}
+
+{% block title %}{{ config.title|raw }} - posts{% endblock %}
+
+{% block content %}
+  {% if pagination.above.show %}
+    <div class="pagination">
+
+      {% if pagination.prev.show %}
+        <a class="pag-prev" href="{{ pagination.prev.url }}">{{ pagination.prev.text }}</a>
+      {% endif %} 
+      
+      {% if pagination.count.show %}
+        showing page {{ pagination.count.current }} of {{ pagination.count.end }}
+      {% endif %}
+      
+      {% if pagination.next.show %}
+        <a class="pag-next" href="{{ pagination.next.url }}">{{ pagination.next.text }}</a>
+      {% endif %} 
+
+    </div>
+  {% endif %}
+
+  {% for post in postList %}
+    {% include post %}
+  {% endfor %}
+
+  {% if pagination.below.show %}
+    <div class="pagination">
+
+      {% if pagination.prev.show %}
+        <a class="pag-prev" href="{{ pagination.prev.url }}">{{ pagination.prev.text }}</a>
+      {% endif %} 
+      
+      {% if pagination.count.show %}
+        showing page {{ pagination.count.current }} of {{ pagination.count.end }}
+      {% endif %}
+      
+      {% if pagination.next.show %}
+        <a class="pag-next" href="{{ pagination.next.url }}">{{ pagination.next.text }}</a>
+      {% endif %} 
+
+    </div>
+  {% endif %}
+  
+{% endblock %}

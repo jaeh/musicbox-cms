@@ -1,0 +1,53 @@
+{% extends themeRootFile %}
+
+{% block opengraphdata %}
+  <meta property="og:title" content="{{config.name}} - about" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="this page informs about {{config.name}}" />
+  <meta property="og:url" content="{{config.protocol}}{{config.url}}/about" />
+  <meta property="og:image" content="{{config.protocol}}{{config.url}}/img/logo.png" />
+{% endblock %}
+
+{% block content %}
+  <header>&micro;cms</header>
+  <p>is a small and simple cms for nodejs, always following the <a href="https://en.wikipedia.org/wiki/Don%27t_Repeat_Yourself" title="dont repeat yourself">dry</a> <a href="https://en.wikipedia.org/wiki/Keep_it_simple_stupid" title="keep it simple stupid">kiss</a> principle.</p>
+  <p>it is built on top of <a href="http://expressjs.com">expressjs</a>, <a href="http://paularmstrong.github.com/swig/">swig html templates</a>, <a href="http://learnboost.github.com/stylus/">stylus css preprocessor</a> and <a href="http://www.nodemailer.com/">nodemailer</a>.</p>
+  <p>its open source too, in case you where wondering. you can fork the project on <a href="http://github.com/m-cms/m-cms"></a></p>
+  <dl>
+    <lh>features:</lh>
+    <dt>template based:</dt>
+    <dd>configuration and content resides in files. there is no database and no metadata, all content is kept within the views directory of the app.</dd>
+    
+    <dt>valid html5 and css3</dt>
+    <dd>we wont support browser quirks. if rendering goes wrong its the fault of the browser and its time for developers to force them instead of being forced. we will always conform to the w3c rules for html5 and css3.</dd>
+    
+    <dt>jslinted javascript</dt>
+    <dd>while jslint doesnt help a lot when it comes to bugs (see mocha below :p) it still helps open source projects keeping organized. it also leads to readable and reusable code and respects javascript standards.</dd>
+    
+    <dt>mocha testing</dt>
+    <dd>well, so far there are three test functions, one that is testing if the absolutely necessary templates exist physically, one that tests the nodemailer implementation and one that tests if configure.do is excessible. more will follow.</dd>
+    
+    <dt>hooks in layout.html</dt>
+    <dd>there are more than 20 "blocks" in the layout.html file, allowing the users to overwrite almost everything in their themes as well as adding content before and after all elements. whilst very simple this should allow almost every kind of extension. documentation following soon.</dd>
+  </dl>
+  
+  <dl>
+    <lh>nodejs open source applications used:</lh>
+    <dt><a href="http://expressjs.com">expressjs</a></dt>
+    <dd>an almost perfect and very enjoyable web framework for nodejs, in the authors own words: Express is a minimal and flexible node.js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications.</dd>
+  
+    <dt><a href="http://dandean.github.com/express-form/">express-form</a></dt>
+    <dd>awesome form validation and data filtering for express</dd>
+    
+    <dt><a href="https://github.com/jarradseers/express-load">express-load</a></dt>
+    <dd>plugin to easily load controllers and routes. really reduces clutter.</dd>
+    
+    <dt><a href="http://paularmstrong.github.com/swig/">swig html templating</a></dt>
+    <dd>its just the template language that seemed to be most optimal for our needs, should be extremely easy to replace (jade and hogan examples will follow soon)</dd>
+  
+    <dt><a href="http://learnboost.github.com/stylus/">stylus css preprocessor</a></dt>
+    <dd>makes css readable. removes all the unnecessary clutter and adds various ways to programmatically create css. should be exchangable with a few lines. (examples of other preprocessors coming soon)</dd>
+    
+  </dl>  
+{% endblock %}
+

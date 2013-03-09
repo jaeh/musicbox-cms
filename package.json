@@ -1,0 +1,32 @@
+{
+  "name": "mcms",
+  "version": "0.0.1-15",
+  "private": true,
+  "scripts": {
+    "start": "app.js",
+    "test": "nodemon app.js --delay 2 -e js,styl,html --debug"
+  },
+  "dependencies": {
+    "express": ">=3.0.6",
+    "express-form": "latest",
+    "express-load": "latest",
+    "consolidate": "latest",
+    "swig": "latest",
+    "stylus": "https://github.com/manarius/stylus/tarball/master",
+    "nodemailer": "latest"
+  },
+  "subdomain": "m-cms",
+  "engines": {
+    "node": "0.8.x"
+  },
+  "domains": [
+    "m-cms.com",
+    "*.m-cms.com",
+    "ja-e.at",
+    "*.ja-e.at"
+  ],
+  "devDependencies": {
+    "mocha": "latest",
+    "should": "latest"
+  }
+}

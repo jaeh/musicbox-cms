@@ -1,0 +1,13 @@
+{% extends themeRootFile %}
+
+{% block title %}
+  {{config.title|raw }} - dry kiss.
+{% endblock %}
+
+{% block content %}
+  <header>welcome to &micro;cms.</header>
+  <p>this is a small and simple cms written in nodejs.</p>
+  <p>it is built on top of <a href="http://expressjs.com">expressjs</a>, <a href="http://paularmstrong.github.com/swig/">swig html templates</a>, <a href="http://learnboost.github.com/stylus/">stylus css preprocessing</a> and <a href="http://www.nodemailer.com/">nodemailer</a>.</p>
+  <p>visit the <a href="/about">about</a> page for further information.</p>
+  <footer>thanks for reading.</footer>
+{% endblock %}

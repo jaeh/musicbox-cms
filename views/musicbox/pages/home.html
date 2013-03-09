@@ -1,0 +1,11 @@
+{% extends themeRootFile %}
+
+{% block title %}{{ config.title|raw }}{% endblock %}
+
+{% block branding %}{{config.branding|raw }}{% endblock %}
+
+{% block content %}
+  <header>welcome to the musicbox customizer.</header>
+  <p>you can create your own custom musicboxes <a href="/customizer">here</a></p>
+  <p>or you can read some more <a href="/about">about</a> the musicbox, its your choice :)</p>
+{% endblock -%}

@@ -1,0 +1,30 @@
+{% extends themeRootFile %}
+
+{% block opengraphdata %}
+  <meta property="og:title" content="{{config.name}} - about" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="this page informs about {{config.name}}" />
+  <meta property="og:url" content="{{config.protocol}}{{config.url}}/about" />
+  <meta property="og:image" content="{{config.protocol}}{{config.url}}/img/logo.png" />
+{% endblock %}
+
+{% block content %}
+
+<header>musicbox is a fully printed parametric music box.</header>
+<p>Only printed parts are used in the design and the cylinder can be exchanged with a snapping mechanism :)</p>
+<p>
+The project originated when a friend of mine said that he'd only be interested in 3D printing once he can print a music box ;)
+</p>
+
+<header>Videos:</header>
+<p>
+  <a href="youtu.be/exNeQDz7f3g">one</a>
+  <a href="youtu.be/tDYvBWCSls8">two</a>
+  <a href="youtube.com/watch?v=1hf05dcl9Fc">three</a>
+</p>
+<br/>
+<p>
+Aside from the dimensional parameters the most important part to customize is the available notes and of course the melody!
+</p>  
+{% endblock %}
+

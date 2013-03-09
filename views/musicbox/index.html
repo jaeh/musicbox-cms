@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <title>{% block title %}{{ config.title|raw }} - {{config.branding|raw}}{% endblock %}</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    
+    <link rel="stylesheet" type="text/css" href="/css/{{theme}}/main.css" />
+    
+    {% block css %}{% endblock %}
+    
+    {% block opengraphdata %}
+        <meta property="og:title" content="{{config.name}} - {{config.branding|raw}} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{config.protocol}}{{config.url}}" />
+        <meta property="og:image" content="{{config.protocol}}{{config.url}}/img/logo.png" />
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    {% block before_header %}{% endblock %}
+    <header>
+      {% block before_logo %}{% endblock %}
+      <div id="logo">
+        {% if config.logo %}
+          <a href="/">
+            <img src="{{ config.protocol }}{{ config.url }}{{ config.logo }}" height="60" width="60" alt="{{ config.title }}" title="{{ config.title }}" />
+          </a>
+        {% else %}
+          <a href="/">{{ config.title|raw }}</a> - <span>{{ config.branding|raw }}</span>
+        {% endif %}
+      </div>
+      {% block after_logo %}{% endblock %}
+      
+      
+      {% block before_header_nav %}{% endblock %}
+      <nav>
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/customizer">customizer</a></li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/contact">contact</a></li>
+          {% for plugin in config.plugins %}
+            {% if plugin.active %}
+              {% for menuItem in plugin.menuItems %}
+                <li><a href="{{ menuItem.url }}">{{ menuItem.text }}</a></li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>      
+      {% block after_header_nav %}{% endblock %}
+  
+    </header>
+    {% block after_header %}{% endblock %}
+  
+      
+    {% block before_content %}{% endblock %}
+    <div id="content" class="main">
+      {% block content %}{% endblock %}
+    </div>
+    {% block after_content %}{% endblock %}
+  
+    
+    {% block before_aside %}{% endblock %}
+    {% block aside %}{% endblock %}
+    {% block after_aside %}{% endblock %}
+  
+  
+    {% block before_footer %}{% endblock %}
+    {% block footer %}
+      <footer>
+        
+        {% block before_footer_content %}{% endblock %}
+        {% block footer_content %}
+          <span>musicbox &copy;left 2012-2013 metalabmusicboxmakers - musicbox is thing #53235 on thingiverse. all hail eris.</span>
+        {% endblock %}
+        {% block after_footer_content %}{% endblock %}
+      </footer>
+    {% endblock %}
+    {% block after_footer %}{% endblock %}
+  
+    {% block js %}{% endblock %}
+{% endblock %}
