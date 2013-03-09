@@ -1,4 +1,7 @@
 this is the musicbox cms
+=====
+
+[musicbox-cms](http://musicbox.ja-e.at/customizer)
 
 it basically is a plugin for m-cms.
 
@@ -8,8 +11,11 @@ this will change soon and then this plugin will be cleansed and reuploaded.
 important folders:
 
 /public/js, /public/soundfont /public/inc - javascripts for the musicbox
+
 /views/musicbox/ - html, css, config
+
 /plugins/customizer - controllers and routes, serverside
+
 
 
 m-cms
